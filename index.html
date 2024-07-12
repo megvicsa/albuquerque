@@ -146,13 +146,13 @@
     <!-- Map container -->
     <div id='map'></div>
     <!-- Manual div providing instructions to the user -->
-    <div id="manual">
+    <!-- <div id="manual">
         <h3>Map Guide</h3>
         <p>This map displays pre-set start and end points for your trip.</p>
         <p>Look for the ⚡ symbol to find two available charging stations along your route.</p>
         <p>Click on any station to view more details about it.</p>
         <p>For navigation, simply click on any two points on the map to get the trip duration and route information.</p>
-    </div>
+    </div> -->
 
     <!-- SET ALL INSTRUCTION INFO BELOW -->
      <div id="instructions">
@@ -217,7 +217,7 @@
                 imageUrl: 'https://photos.plugshare.com/photos/1306862.jpg',
                 name: 'Santa Ana Star Center',
 
-                location: '1016 US-550, Bernalillo 87004',
+                location: 'My current location is 1016 US-550, Bernalillo 87004',
                 originDistance: ' Miles',
                 originTime: ' Minutes',
                 destDistance: ' Miles ',
@@ -553,17 +553,17 @@
                     <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 10px;">${station.name}</h3>
                     <img src="${decodeURIComponent(encodedImageUrl)}" alt="${station.name}" style="width:100%;max-width:300px;">
                     <button class="popup-button" onclick="showMoreInfo('${station.name}', 'location', '${station.location}')">Location</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'originDistance', '${station.originDistance}')">Distance from Start</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'originTime', '${station.originTime}')">Travel Time from Start</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'destDistance', '${station.destDistance}')">Distance to Destination</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'destTime', '${station.destTime}')">Travel Time to Destination</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'waitTime', '${station.waitTime}')">Wait Time</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'plugs', '${station.plugs}')">Plugs</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'chargeTime', '${station.chargeTime}')">Charge Time</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'socketAvalability', '${station.socketAvalability}')">Socket Availability</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'energySource', '${station.energySource}')">Energy Source</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'fees', '${station.fees}')">Fees</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'parking', '${station.parking}')">Parking</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'originDistance', '${station.originDistance} <br><br> The charging station is ${station.originDistance} from your location')">Distance from My Location</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'originTime', '${station.originTime} <br><br> The estimated travel time from your location to this charging station is ${station.originTime}')">Travel Time from My Locationt</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'destDistance', '${station.destDistance} <br><br> The distance from this charging station to the destination is ${station.destDistance}')">Distance to Destination</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'destTime', '${station.destTime} <br><br> The estimated travel time from this charging station to the destination is ${station.destTime}')">Travel Time to Destination</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'waitTime', '${station.waitTime} <br><br> The estimated time you have to wait before you can access the charging socket is 0 minutes!')">Wait Time at Station</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'plugs', '${station.plugs} <br><br> There are four plugs of ${station.plugs} available ')">Plugs available at Station</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'chargeTime', '${station.chargeTime} <br><br> The estimated charging of ${station.plugs} is ${station.chargeTime}')">Charge Time</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'socketAvalability', 'There are ${station.socketAvalability} sockets')">Socket Availability</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'energySource', '${station.energySource} <br><br> The energy source is available from a ${station.energySource}')">Energy Source at Station</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'fees', '${station.fees} <br><br> The price per KiloWatt hour (kWh) is ${station.fees}')">Cost to charge</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'parking', '${station.parking} <br><br> The price of parking your car at the charging station is ${station.parking}')">Cost to park at station</button>
                     <button class="popup-button" onclick="showMoreInfo('${station.name}', 'coffee', '${station.coffee}')">Coffee Shop</button>
                     <button class="popup-button" onclick="showMoreInfo('${station.name}', 'grocery', '${station.grocery}')">Grocery Store</button>
                     <button class="popup-button" onclick="showMoreInfo('${station.name}', 'sportsClothes', '${station.sportsClothes}')">Sport/Clothing Store</button>
@@ -646,7 +646,7 @@
             if (manualDiv) {
                 manualDiv.innerHTML = `
                     <h3>Map Guide</h3>
-                    <p>This map displays pre-set start and end points for your trip.</p>
+                    <p>This map displays pre-set My Location and end points for your trip.</p>
                     <p>Look for the ⚡ symbol to find two available charging stations along your route.</p>
                     <p>Click on any station to view more details about it.</p>
                     <p>For navigation, simply click on any two points on the map to get the trip duration and route information.</p>
