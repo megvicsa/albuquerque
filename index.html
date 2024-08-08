@@ -188,13 +188,13 @@
             container: 'map',
             style: 'mapbox://styles/mapbox/navigation-day-v1',
             center: [-106.71067639846083, 35.111539482823545],
-            zoom: 1
+            zoom: 2
         });
         const bounds = [
-            [-108.604433, 34.409636],
-            [-105.041900, 36.103468]
+            [-108.104433, 34.609636],
+            [-105.541900, 35.903468]
         ];
-        map.setMaxBounds(bounds);
+        map.setMaxBounds(bounds)
 
         // Create and add markers for start and end points
         const startMarker = new mapboxgl.Marker({ color: '#3887be' }).setLngLat([-122.662323, 45.523751]).addTo(map);
@@ -229,7 +229,7 @@
                 imageUrl: 'https://photos.plugshare.com/photos/1306862.jpg',
                 name: 'Santa Ana Star Center',
 
-                location: 'My current location is 1016 US-550, Bernalillo 87004',
+                location: '1016 US-550, Bernalillo 87004',
                 originDistance: ' Miles',
                 originTime: ' Minutes',
                 destDistance: ' Miles ',
@@ -294,9 +294,9 @@
                 parkingFee: 'free',
                 parkingFeeRate: 'for any amount of time in the day',
 
-                coffee: 'No <br><br> There is a coffee shop in walking distance... 0 miles',
-                grocery: 'No <br><br> There is a grocery store in walking distance... 0 miles',
-                sportsClothes: 'Yes <br><br> There is a sports or clothing store in walking distance... 0 miles',
+                coffee: 'No <br><br> There are no coffee shops in walking distance',
+                grocery: 'No <br><br> There are no grocery stores in walking distance',
+                sportsClothes: 'No <br><br> There are no sports or clothing stores in walking distance',
                 
                 rating: '',  
                 ratingNum: '0'
@@ -922,7 +922,7 @@
                 logData(`Map Clicked`, null, null, clickCoords, mapNum);
                 console.log(`Map clicked at: ${clickCoords}`);
 
-                const bufferRadius = 0.8; // Buffer radius in kilometers
+                const bufferRadius = 1.6; // Buffer radius in kilometers
 
                 if(!checkBufferZone(clickCoords, chargingStations[0].coordinates, bufferRadius) && !checkBufferZone(clickCoords, chargingStations[1].coordinates, bufferRadius)) {
                     removeRoutes();
