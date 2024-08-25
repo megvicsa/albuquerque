@@ -208,16 +208,16 @@
 
         // Function to add a marker at a specific point on the map
         const instructions = [
-            { title: "Current Time", info: "7:59 AM" },
-            { title: "Address of Origin", info: "Nambe St, Kewa Pueblo, NM 87052" },
-            { title: "Address of Destination", info: "175 Calle del Llano, Laguna, NM 87026" },
+            { title: "Current Time", info: "7:59 AM." },
+            { title: "Address of Origin", info: "Nambe St, Kewa Pueblo, NM 87052." },
+            { title: "Address of Destination", info: "175 Calle del Llano, Laguna, NM 87026." },
             { title: "Distance of Destination", info: "0" },
             { title: "Estimated Time to Destination", info: "0" },
-            { title: "State of Charge of Battery", info: "50% Charge" },
-            { title: "Range of Current Battery", info: "150 Minutes" },
-            { title: "Estimated Drive-distance with Current Charge", info: "113 Miles" },
-            { title: "Type of Chargin Socket", info: "J1772" },
-            { title: "kW Needed to Fully Charge Your Car", info: "30 kW" }
+            { title: "State of Charge of Battery", info: "50% charge." },
+            { title: "Range of Current Battery", info: "150 minutes." },
+            { title: "Estimated Drive-distance with Current Charge", info: "113 miles." },
+            { title: "Type of Chargin Socket", info: "J1772." },
+            { title: "kW Needed to Fully Charge Your Car", info: "30 kW." }
         ];
 
 
@@ -245,19 +245,19 @@
                         { type: 'J1772', value: '278' }
                     ],
                 socketAvalability: [
-                        { type: 'J1772', value: '4 available' }
+                        { type: 'J1772', value: '4' }
                     ],
 
-                energySource: 'Energy Breakdown: 66% Grid, 34% Renewable',
+                energySource: '66% Grid, 34% Renewable',
 
                 chargingFee: '$2.00',
                 chargingFeeRate: 'per hour',
-                parkingFee: 'free',
-                parkingFeeRate: 'for any amount of time',
+                parkingFee: '$0.00',
+                parkingFeeRate: 'per hour',
 
-                coffee: 'Yes <br><br> There is a coffee shop in walking distance... 0 miles',
-                grocery: 'No <br><br> There is a grocery store in walking distance... 0 miles',
-                sportsClothes: 'No <br><br> There is a sports or clothing store in walking distance... 0 miles',
+                coffee: 'Yes. <br><br> There is a coffee shop in walking distance 0.1 miles away.',
+                grocery: 'No. <br><br> There is no grocery store in walking distance.',
+                sportsClothes: 'No. <br><br> There is no sports or clothing store in walking distance.',
                 
                 rating: '★ ★ ★ ★ ★',
                 ratingNum: '18'
@@ -265,7 +265,7 @@
             {
                 coordinates: [-106.559725, 35.323255],
                 imageUrl: 'https://photos.plugshare.com/photos/811895.jpg',
-                name: 'Enchanted Trails RV Park & Trading Pos',
+                name: 'Enchanted Trails RV Park & Trading Post',
 
                 location: '14305 Central Ave NW, Albuquerque, NM 87121, USA',
                 originDistance: ' Miles',
@@ -280,23 +280,23 @@
                         { type: 'NEMA', value: '2' }
                     ],    
                 chargeTime: [
-                        { type: 'NEMA', value: 'Unknown' }
+                        { type: 'NEMA', value: '278' }
                     ],
                 socketAvalability: [
-                        { type: 'NEMA', value: '0 available' }
+                        { type: 'NEMA', value: '0' }
                     ],        
 
-                energySource: 'Energy Breakdown: 48% Grid, 52% Renewable',
+                energySource: '48% Grid, 52% Renewable',
 
                 chargingFee: '$10.00',
                 chargingFeeRate: 'per day',
 
-                parkingFee: 'free',
-                parkingFeeRate: 'for any amount of time in the day',
+                parkingFee: '$0.00',
+                parkingFeeRate: 'per hour',
 
-                coffee: 'No <br><br> There are no coffee shops in walking distance',
-                grocery: 'No <br><br> There are no grocery stores in walking distance',
-                sportsClothes: 'No <br><br> There are no sports or clothing stores in walking distance',
+                coffee: 'No. <br><br> There are no coffee shops in walking distance.',
+                grocery: 'No. <br><br> There are no grocery stores in walking distance.',
+                sportsClothes: 'No. <br><br> There are no sports or clothing stores in walking distance.',
                 
                 rating: '',  
                 ratingNum: '0'
@@ -512,28 +512,28 @@
             let waitTimeDetails = station.waitTime.map(item => `The estimated wait time of socket ${item.type} is... ${item.value} minutes`).join('<br><br>');
             let plugDetails = station.plugNumb.map(item => `There are ${item.value} number of socket type ${item.type}`).join('<br><br>');
             let chargeTimeDetails = station.chargeTime.map(item => `The estimated charging time of socket ${item.type} is... ${item.value} minutes to full`).join('<br><br>');
-            let socketAvailabilityDetails = station.socketAvalability.map(item => `There are ${item.value} availible number of socket type ${item.type}`).join('<br><br>');
+            let socketAvailabilityDetails = station.socketAvalability.map(item => `There are ${item.value} available number of socket type ${item.type}`).join('<br><br>');
 
             return `
                     <h3 style="font-size: 20px; margin-top: 0; margin-bottom: 10px;">${station.name}</h3>
                     <img src="${decodeURIComponent(encodedImageUrl)}" alt="${station.name}" style="width:100%;max-width:300px;">
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'location', '${station.location}', '${boxId}')">Location</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'originDistance', '${station.originDistance} miles, <br><br>The distance from your location to ${station.name} is... ${station.originDistance} miles', '${boxId}')">Distance from My Location</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'originTime', '${station.originTime} minutes, <br><br>The estimated travel time from your location to ${station.name} is... ${station.originTime} minutes', '${boxId}')">Travel Time from My Location</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'destDistance', '${station.destDistance} miles, <br><br>The distance from ${station.name} to the destination is... ${station.destDistance} miles', '${boxId}')">Distance to Destination</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'destTime', '${station.destTime} minutes, <br><br>The estimated travel time from  ${station.name} to the destination is... ${station.destTime} minutes', '${boxId}')">Travel Time to Destination</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'location', '<b>Location:</b> <br>${station.location}', '${boxId}')">Location</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'originDistance', '<b>Origin Distance:</b> ${station.originDistance} miles. <br><br>The distance from your location to ${station.name} is ${station.originDistance} miles.', '${boxId}')">Distance from My Location</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'originTime', '<b>Origin Time:</b> ${station.originTime} minutes. <br><br>The estimated travel time from your location to ${station.name} is ${station.originTime} minutes.', '${boxId}')">Travel Time from My Location</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'destDistance', '<b>Destination Time:</b> ${station.destDistance} miles. <br><br>The distance from ${station.name} to the destination is ${station.destDistance} miles.', '${boxId}')">Distance to Destination</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'destTime', '<b>Destination Time:</b> ${station.destTime} minutes. <br><br>The estimated travel time from ${station.name} to the destination is ${station.destTime} minutes.', '${boxId}')">Travel Time to Destination</button>
 
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'waitTime', '${waitTimeDetails}', '${boxId}')">Wait Time at Station</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'plugs', '${plugDetails}', '${boxId}')">Plugs Available at Station</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'chargeTime', '${chargeTimeDetails}', '${boxId}')">Charge Time</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'socketAvalability', '${socketAvailabilityDetails}', '${boxId}')">Socket Availability</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'waitTime', '<b>Wait Time:</b><br>${waitTimeDetails}', '${boxId}')">Wait Time at Station</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'plugs', '<b>Plugs:</b><br>${plugDetails}', '${boxId}')">Plugs Available at Station</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'chargeTime', '<b>Charge Time:</b><br>${chargeTimeDetails}', '${boxId}')">Charge Time</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'socketAvalability', '<b>Socket Availability:</b><br>${socketAvailabilityDetails}', '${boxId}')">Socket Availability</button>
 
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'energySource', '${station.energySource}', '${boxId}')">Energy Source at Station</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'fees', '${station.chargingFee} <br><br> The price ${station.chargingFeeRate} is ${station.chargingFee}', '${boxId}')">Cost to Charge</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'parking', '${station.parkingFee} parking <br><br> The price of parking your car at the charging station ${station.parkingFeeRate} is... ${station.parkingFee}', '${boxId}')">Cost to Park at Station</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'coffee', '${station.coffee}', '${boxId}')">Coffee Shop</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'grocery', '${station.grocery}', '${boxId}')">Grocery Store</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'sportsClothes', '${station.sportsClothes}', '${boxId}')">Sport/Clothing Store</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'energySource', '<b>Energy Source Breakdown:</b><br>${station.energySource}', '${boxId}')">Energy Source at Station</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'fees', '<b>Cost to Charge:</b> ${station.chargingFee}. <br><br> The price ${station.chargingFeeRate} is ${station.chargingFee}.', '${boxId}')">Cost to Charge</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'parking', '<b>Cost to Park at Station:</b> ${station.parkingFee} parking. <br><br> The price of parking your car at the charging station ${station.parkingFeeRate} is ${station.parkingFee}.', '${boxId}')">Cost to Park at Station</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'coffee', '<b>Coffe Shop:</b> ${station.coffee}', '${boxId}')">Coffee Shop</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'grocery', '<b>Grocery Store:</b> ${station.grocery}', '${boxId}')">Grocery Store</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'sportsClothes', '<b>Sports/Clothing Store:</b> ${station.sportsClothes}', '${boxId}')">Sport/Clothing Store</button>
                     <button class="popup-button" onclick="showMoreInfo('${station.name}', 'rating', '', '${boxId}')">Rating</button>
                 `;
         }
@@ -580,7 +580,7 @@
             content = `<p style="font-size: 16px; padding: 5px;">${infoContent}</p>`;
 
             if (infoType === 'rating') {
-                content = `<p style="font-size: 16px; padding: 5px;"><span class="stars">${station.rating}</span> <br><br> There are ${station.ratingNum} total reviews</p>`;
+                content = `<p style="font-size: 16px; padding: 5px;"><b>Rating:<b><br><span class="stars">${station.rating}</span> <br><br> There are ${station.ratingNum} total reviews.</p>`;
                 console.log('Rating clicked');
             }
 
@@ -727,8 +727,8 @@
 
         // Function to update instructions with route details
         function updateInstructions(routeDetails) {
-            instructions[3].info = `${routeDetails.distance.toFixed(2)} miles`;
-            instructions[4].info = `${routeDetails.time} minutes`;
+            instructions[3].info = `${routeDetails.distance.toFixed(2)} miles.`;
+            instructions[4].info = `${routeDetails.time} minutes.`;
         }
 
         // Function to get the route to travel between any route type
