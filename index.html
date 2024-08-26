@@ -215,7 +215,7 @@
             { title: "Estimated Time to Destination", info: "0" },
             { title: "State of Charge of Battery", info: "50% charge." },
             { title: "Range of Current Battery", info: "150 minutes." },
-            { title: "Estimated Drive-distance with Current Charge", info: "113 miles." },
+            { title: "Estimated Drive Distance with Current Charge", info: "113 miles." },
             { title: "Type of Chargin Socket", info: "J1772." },
             { title: "kW Needed to Fully Charge Your Car", info: "30 kW." }
         ];
@@ -253,7 +253,7 @@
                 chargingFee: '$2.00',
                 chargingFeeRate: 'per hour',
                 parkingFee: '$0.00',
-                parkingFeeRate: 'per hour',
+                parkingFeeRate: 'per any amount of time',
 
                 coffee: 'Yes. <br><br> There is a coffee shop in walking distance 0.1 miles away.',
                 grocery: 'No. <br><br> There is no grocery store in walking distance.',
@@ -292,7 +292,7 @@
                 chargingFeeRate: 'per day',
 
                 parkingFee: '$0.00',
-                parkingFeeRate: 'per hour',
+                parkingFeeRate: 'per any amount of time',
 
                 coffee: 'No. <br><br> There are no coffee shops in walking distance.',
                 grocery: 'No. <br><br> There are no grocery stores in walking distance.',
@@ -530,7 +530,7 @@
 
                     <button class="popup-button" onclick="showMoreInfo('${station.name}', 'energySource', '<b>Energy Source Breakdown:</b><br>${station.energySource}', '${boxId}')">Energy Source at Station</button>
                     <button class="popup-button" onclick="showMoreInfo('${station.name}', 'fees', '<b>Cost to Charge:</b> ${station.chargingFee}. <br><br> The price ${station.chargingFeeRate} is ${station.chargingFee}.', '${boxId}')">Cost to Charge</button>
-                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'parking', '<b>Cost to Park at Station:</b> ${station.parkingFee} parking. <br><br> The price of parking your car at the charging station ${station.parkingFeeRate} is ${station.parkingFee}.', '${boxId}')">Cost to Park at Station</button>
+                    <button class="popup-button" onclick="showMoreInfo('${station.name}', 'parking', '<b>Cost to Park at Station:</b> ${station.parkingFee}. <br><br> The price of parking your car at the charging station ${station.parkingFeeRate} is ${station.parkingFee}.', '${boxId}')">Cost to Park at Station</button>
                     <button class="popup-button" onclick="showMoreInfo('${station.name}', 'coffee', '<b>Coffe Shop:</b> ${station.coffee}', '${boxId}')">Coffee Shop</button>
                     <button class="popup-button" onclick="showMoreInfo('${station.name}', 'grocery', '<b>Grocery Store:</b> ${station.grocery}', '${boxId}')">Grocery Store</button>
                     <button class="popup-button" onclick="showMoreInfo('${station.name}', 'sportsClothes', '<b>Sports/Clothing Store:</b> ${station.sportsClothes}', '${boxId}')">Sport/Clothing Store</button>
